@@ -10,16 +10,16 @@
 	<link rel="stylesheet" href="/webfonts/evolventa.css" type="text/css">
 </head>
 <body>
-	<div><a href="/"><img src="/images/evolventa-logo.svg" width="200px" alt="evolventa" onerror="this.src='/images/evolventa-logo.png'"></a></div>
+	<div><a href="/"><img src="/images/evolventa-logo.svg" width="200" alt="evolventa" onerror="this.src='/images/evolventa-logo.png'"></a></div>
 	
 	<section id="evolventa">
 		<h1 class="semanticheading">Evolventa font family</h1>
 		<p><em>Evolventa</em> is a Cyrillic extension of the open-source <em>URW Gothic L</em> font family. It has a familiar geometric sans-serif design and includes four faces.</p>
-		<p><a href="/images/websample.png"><img src="/images/websample.png" style="max-width: 100%;" title="Font sample: click to enlarge"></a></p>
+		<p><a href="/images/websample.png"><img src="/images/websample.png" style="max-width: 100%;" title="Font sample: click to enlarge" alt="Evolventa font sample"></a></p>
 		<p>The fonts are available under two open source licenses: <a href="gpl.txt">GPLv2</a> and <a href="lppl.txt">LPPL</a>.
 		<p class="filelink"><a href="https://github.com/evolventa/evolventa/releases/download/1.0/evolventa-1.0.7z" download><img src="/images/download-icon.svg" alt="Download" onerror="this.src='/images/download-icon.png'"> Download fonts package (OTF, TTF, WOFF, documentation) &mdash; version 1.0</a></p>
 		<p class="filelink"><a href="/doc/coverage/Evolventa-Regular.pdf"><img src="/images/Adobe_PDF_file_icon_24x24.png" alt="PDF"> Unicode coverage chart</a></p>
-		<p><a href="https://github.com/evolventa/evolventa">GitHub project page</a></p>
+		<p class="filelink"><a href="https://github.com/evolventa/evolventa"><img src="/images/rightarrow-icon.svg" alt="→" onerror="this.src='/images/rightarrow-icon.png'"> GitHub project page</a></p>
 		<p class="filelink"><a href="https://github.com/evolventa/evolventa/blob/master/upstream/ghostscript-fonts-4.0.tar.gz?raw=true" download><small>Download original URW fonts</small></a></p>
 	</section>
 	
@@ -206,10 +206,10 @@
 		};
 		// -->
 		</script>
-		<form id="choosefont" onsubmit="return changeFont();" action="">
+		<form id="choosefont" onsubmit="return changeFont();" action="/">
 			<div class="panel">
 				<input type="hidden" name="font" value="Evolventa" onchange="changeFont();" onkeydown="if(event.keyCode==13) changeFont();">
-				Size (pt) <input type="text" name="pointsize" value="32" size="5em" onchange="changeFont();" onkeyup="changeFont();" onkeydown="changeFont();">
+				Size (pt) <input type="text" name="pointsize" value="32" onchange="changeFont();" onkeyup="changeFont();" onkeydown="changeFont();" style="width: 5em;">
 				<input type="checkbox" name="bold" onchange="changeFont();"> Bold
 				<input type="checkbox" name="italic" onchange="changeFont();"> Italic
 				<input type="checkbox" name="kerning" checked="checked" onchange="changeFont();"> Kerning
@@ -262,9 +262,9 @@
 				<input type="checkbox" name="mkmk" checked="checked" onchange="changeFont();"> <span class="tooltip" title="Mark to Mark Positioning"><em>mkmk</em></span>
 			</div>
 		</form>
-		<form id="mode" onsubmit="return false;" action="">
+		<form id="mode" onsubmit="return false;" action="/">
 			<div class="panel">
-				<select name="test" onchange="changeText(this);" onkeyup="changeText(this);" onkeydown="changeText(this);"><option></option></select>
+				<select name="test" onchange="changeText(this);" onkeyup="changeText(this);" onkeydown="changeText(this);"></select>
 				<input type="text" name="teststring" value="The quick brown fox jumps over the lazy dog" onchange="changeText(this);" onkeyup="changeText(this);" onkeydown="changeText(this);">
 				<input type="checkbox" name="wrap" checked="checked" onchange="changeWrap();" style="display: none;">
 			</div>
@@ -272,7 +272,7 @@
 		<div id="sandbox" style="text-rendering: geometricPrecision; font-synthesis: none; min-height: 6em;">
 			<div id="waterfall" lang="en"></div>
 		</div>
-		<p><small>Note: this preview uses your browser’s text rendering engine. Depending on the browser version, some features may not work.</small></p>
+		<p><small>Note: this preview uses your browser’s text rendering engine. Depending on the browser version, some features may not be available.</small></p>
 	</section>
 	
 	<footer>
