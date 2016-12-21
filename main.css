@@ -1,0 +1,42 @@
+body {
+	font-family: "Open Sans", "Verdana", sans-serif;
+}
+
+p {
+	max-width: 40em;
+}
+
+a {
+	color: #20898d;
+	text-decoration: none;
+}
+
+section ul {
+	list-style-type: circle;
+}
+
+footer {
+	margin-top: 2em;
+	font-size: small;
+	color: silver;
+}
+
+.filelink img {
+	vertical-align: text-bottom;
+	width: 24px;
+	height: 24px;
+}
+
+.panel {
+	margin-bottom: 0.5em;
+	font-size: small;
+}
+
+.tooltip {
+	border-bottom: 1px dotted black;
+	cursor: help;
+}
+
+.semanticheading {
+	display: none;
+}

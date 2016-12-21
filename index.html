@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Evolventa — a free open source font">
+	<title>Evolventa font family</title>
+	<link rel="icon" type="image/png" href="/images/evolventa-icon.png">
+	<link rel="stylesheet" type="text/css" href="/main.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic" type="text/css">
+	<link rel="stylesheet" href="/webfonts/evolventa.css" type="text/css">
+</head>
+<body>
+	<div><a href="/"><img src="/images/evolventa-logo.svg" width="200px" alt="evolventa" onerror="this.src='/images/evolventa-logo.png'"></a></div>
+	
+	<section id="evolventa">
+		<h1 class="semanticheading">Evolventa font family</h1>
+		<p><em>Evolventa</em> is a Cyrillic extension of the open-source <em>URW Gothic L</em> font family. It has a familiar geometric sans-serif design and includes four faces.</p>
+		<p><a href="/images/websample.png"><img src="/images/websample.png" style="max-width: 100%;" title="Font sample: click to enlarge"></a></p>
+		<p>The fonts are available under two open source licenses: <a href="gpl.txt">GPLv2</a> and <a href="lppl.txt">LPPL</a>.
+		<p class="filelink"><a href="https://github.com/evolventa/evolventa/releases/download/1.0/evolventa-1.0.7z" download><img src="/images/download-icon.svg" alt="Download" onerror="this.src='/images/download-icon.png'"> Download fonts package (OTF, TTF, WOFF, documentation) &mdash; version 1.0</a></p>
+		<p class="filelink"><a href="/doc/coverage/Evolventa-Regular.pdf"><img src="/images/Adobe_PDF_file_icon_24x24.png" alt="PDF"> Unicode coverage chart</a></p>
+		<p><a href="https://github.com/evolventa/evolventa">GitHub project page</a></p>
+		<p class="filelink"><a href="https://github.com/evolventa/evolventa/blob/master/upstream/ghostscript-fonts-4.0.tar.gz?raw=true" download><small>Download original URW fonts</small></a></p>
+	</section>
+	
+	<section id="testdrive">
+		<h1>Test drive</h1>
+		<script type="text/javascript">
+		<!--
+		var pangrams=[
+			["English","The quick brown fox jumps over the lazy dog","en"],
+			["French","Dès Noël où un zéphyr haï me vêt de glaçons würmiens je dîne d’exquis rôtis de bœuf au kir à l’aÿ d’âge mûr & cætera&nbsp;!","fr"],
+			["German","Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich","de"],
+			["Spanish","José compró una vieja zampoña en Perú. Excusándose, Sofía tiró su whisky al desagüe de la banqueta.","es"],
+			["Icelandic","Sævör grét áðan því úlpan var ónýt","is"],
+			["Russian","Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф.","ru"],
+			["Ukrainian","На подушечці форми любої є й ґудзик щоб пір’я геть жовте сховати","uk"],
+			["Belarusian","У Іўі худы жвавы чорт у зялёнай камізэльцы пабег пад’есці фаршу з юшкай","be"],
+			["Serbian","Фијуче ветар у шибљу, леди пасаже и куће иза њих и гунђа у оџацима","sr"],
+			["──────────","","en"],
+			["Digits","00001111 0123456789 1901–1999 ¼½¾ (1−2+3)×4=56÷[7+(18/9)−2]","en"],
+			["Ligatures","The firefly affect affinity affliction first Quality","en"],
+			["Combining marks","À B́ Ĉ D̃ Ē F̆ Ġ Ḧ I̊ J̋ Ǩ à b́ ĉ d̃ ē f̆ ġ ḧ i̊ j̋ ǩ А̀ Б́ В̂ Г̃ Д̄ Ӗ Ё̇ Ӝ З̊ И̋ Й̌ а̀ б́ в̂ г̃ д̄ ӗ ё̇ ӝ з̊ и̋ й̌ Ă̇̈ ă̇̈","en"]
+		];
+		var oldstr=pangrams[0][1];
+		function initMode() {
+			var text="";
+			for(i=0;i<pangrams.length;i++) {
+				if(pangrams[i][1]!="") text+="<option value=\""+i+"\">"+pangrams[i][0]+"</option>\n";
+				else text+="<option value=\""+i+"\" disabled=\"disabled\">"+pangrams[i][0]+"</option>\n";
+			}
+			document.getElementById("mode").elements.test.innerHTML=text;
+		}
+		function changeFont() {
+		// Set up font
+			var fontname=document.getElementById("choosefont").elements.font.value;
+			
+			if(fontname.indexOf(" ")>=0) fontname="\'"+fontname+"\'";
+				
+			document.getElementById("sandbox").style.fontSize=
+				document.getElementById("choosefont").elements.pointsize.value+"pt";
+			document.getElementById("sandbox").style.fontFamily=
+				fontname+", LastResort";
+			document.getElementById("sandbox").style.fontWeight=
+				document.getElementById("choosefont").elements.bold.checked?"bold":"normal";
+			document.getElementById("sandbox").style.fontStyle=
+				document.getElementById("choosefont").elements.italic.checked?"italic":"normal";
+
+			var otfeatures=new Array;
+			
+		// Set up kerning
+			document.getElementById("sandbox").style.fontKerning=
+				document.getElementById("choosefont").elements.kerning.checked?"normal":"none";
+			
+			if(document.getElementById("choosefont").elements.kerning.checked) {
+				document.getElementById("sandbox").style.fontKerning="normal";
+				document.getElementById("sandbox").style.WebkitFontKerning="normal";
+				otfeatures[otfeatures.length]="\"kern\" on";
+			}
+			else {
+				document.getElementById("sandbox").style.fontKerning="none";
+				document.getElementById("sandbox").style.WebkitFontKerning="none";
+				otfeatures[otfeatures.length]="\"kern\" off";
+			}
+				
+		// Set up advanced OpenType layout features
+			
+			var digits=document.getElementById("choosefont").elements.digits.value;
+			
+			switch(digits) {
+			case "lining tabular":
+				otfeatures[otfeatures.length]="\"lnum\""; otfeatures[otfeatures.length]="\"tnum\""; 
+				break;
+			case "lining proportional":
+				otfeatures[otfeatures.length]="\"lnum\""; otfeatures[otfeatures.length]="\"pnum\"";
+				break;
+			case "old-style tabular":
+				otfeatures[otfeatures.length]="\"onum\""; otfeatures[otfeatures.length]="\"tnum\"";
+				break;
+			case "old-style proportional":
+				otfeatures[otfeatures.length]="\"onum\""; otfeatures[otfeatures.length]="\"pnum\"";
+				break;
+			}
+
+			if(document.getElementById("choosefont").elements.ss.value!="none") otfeatures[otfeatures.length]="\""+document.getElementById("choosefont").elements.ss.value+"\"";
+			
+			if(document.getElementById("choosefont").elements.liga.checked) otfeatures[otfeatures.length]="\"liga\" on";
+			else otfeatures[otfeatures.length]="\"liga\" off";
+			
+			if(document.getElementById("choosefont").elements.dlig.checked) otfeatures[otfeatures.length]="\"dlig\" on";
+			else otfeatures[otfeatures.length]="\"dlig\" off";
+			
+			if(document.getElementById("choosefont").elements.hlig.checked) otfeatures[otfeatures.length]="\"hlig\" on";
+			else otfeatures[otfeatures.length]="\"hlig\" off";
+			
+			if(document.getElementById("choosefont").elements.clig.checked) otfeatures[otfeatures.length]="\"clig\" on";
+			else otfeatures[otfeatures.length]="\"clig\" off";
+			
+			if(document.getElementById("choosefont").elements.ccmp.checked) otfeatures[otfeatures.length]="\"ccmp\" on";
+			else otfeatures[otfeatures.length]="\"ccmp\" off";
+			
+			if(document.getElementById("choosefont").elements.smcp.checked) otfeatures[otfeatures.length]="\"smcp\" on";
+			else otfeatures[otfeatures.length]="\"smcp\" off";
+			
+			if(document.getElementById("choosefont").elements.c2sc.checked) otfeatures[otfeatures.length]="\"c2sc\" on";
+			else otfeatures[otfeatures.length]="\"c2sc\" off";
+			
+			if(document.getElementById("choosefont").elements.swsh.checked) otfeatures[otfeatures.length]="\"swsh\" on";
+			else otfeatures[otfeatures.length]="\"swsh\" off";
+			
+			if(document.getElementById("choosefont").elements.calt.checked) otfeatures[otfeatures.length]="\"calt\" on";
+			else otfeatures[otfeatures.length]="\"calt\" off";
+			
+			if(document.getElementById("choosefont").elements.salt.checked) otfeatures[otfeatures.length]="\"salt\" on";
+			else otfeatures[otfeatures.length]="\"salt\" off";
+			
+			if(document.getElementById("choosefont").elements.locl.checked) otfeatures[otfeatures.length]="\"locl\" on";
+			else otfeatures[otfeatures.length]="\"locl\" off";
+			
+			if(document.getElementById("choosefont").elements.mark.checked) otfeatures[otfeatures.length]="\"mark\" on";
+			else otfeatures[otfeatures.length]="\"mark\" off";
+			
+			if(document.getElementById("choosefont").elements.mkmk.checked) otfeatures[otfeatures.length]="\"mkmk\" on";
+			else otfeatures[otfeatures.length]="\"mkmk\" off";
+			
+			if(otfeatures.length>0) {
+				otstring="";
+				for(i=0;i<otfeatures.length;i++) {
+					otstring+=otfeatures[i];
+					if(i<otfeatures.length-1) otstring+=", ";
+				}
+			}
+			else otstring="normal";
+			
+			document.getElementById("sandbox").style.fontFeatureSettings=otstring;
+			document.getElementById("sandbox").style.WebkitFontFeatureSettings=otstring;
+			document.getElementById("sandbox").style.MozFontFeatureSettings=otstring;
+			document.getElementById("sandbox").style.MsFontFeatureSettings=otstring;
+			
+		// Refresh text
+			changeText(null);
+
+			return false;
+		}
+		function changeText(el) {
+			var text="";
+			
+			document.getElementById("waterfall").lang=pangrams[document.getElementById("mode").elements.test.value][2];
+			
+			if(el==null) { // refresh
+				str=oldstr;
+				document.getElementById("mode").elements.teststring.value=str;
+			}
+			else if(el.name=="test") {
+				if(el.value>=pangrams.length) return;
+				str=pangrams[el.value][1];
+				if(oldstr==str) return;
+				document.getElementById("mode").elements.teststring.value=str;
+			}
+			else {
+				str=el.value;
+				if(!str||str=="") str=pangrams[document.getElementById("mode").elements.test.value][1];
+				if(oldstr==str) return;
+			}
+
+			oldstr=str;
+				
+			for(i=100;i>=20;i=i*0.95) {
+				text+="<div style=\"font-size: "+i+"%; margin-bottom: 0.3em;\">"+str+"</div>\n";
+			}
+			document.getElementById("waterfall").innerHTML=str;
+		}
+		function changeWrap() {
+			if(document.getElementById("mode").elements.wrap.checked) {
+				document.getElementById("sandbox").style.whiteSpace="normal";
+			}
+			else {
+				alert('Wrap is unchecked');
+				document.getElementById("sandbox").style.whiteSpace="nowrap";
+			}
+		}
+		window.onload = function() {
+			initMode();
+			changeWrap();
+			changeFont();
+		};
+		// -->
+		</script>
+		<form id="choosefont" onsubmit="return changeFont();" action="">
+			<div class="panel">
+				<input type="hidden" name="font" value="Evolventa" onchange="changeFont();" onkeydown="if(event.keyCode==13) changeFont();">
+				Size (pt) <input type="text" name="pointsize" value="32" size="5em" onchange="changeFont();" onkeyup="changeFont();" onkeydown="changeFont();">
+				<input type="checkbox" name="bold" onchange="changeFont();"> Bold
+				<input type="checkbox" name="italic" onchange="changeFont();"> Italic
+				<input type="checkbox" name="kerning" checked="checked" onchange="changeFont();"> Kerning
+			</div>
+			<div class="panel">
+				Figures
+				<select name="digits" onchange="changeFont();" onkeyup="changeFont();" onkeydown="changeFont();">
+					<option value="lining tabular">Tabular</option>
+					<option value="lining proportional">Proportional</option>
+				</select>
+				Stylistic set
+				<select name="ss" onchange="changeFont();" onkeyup="changeFont();" onkeydown="changeFont();">
+					<option value="none">none</option>
+					<option value="ss01">1</option>
+					<option value="ss02">2</option>
+					<option value="ss03">3</option>
+					<option value="ss04">4</option>
+					<option value="ss05">5</option>
+					<option value="ss06">6</option>
+					<option value="ss07">7</option>
+					<option value="ss08">8</option>
+					<option value="ss09">9</option>
+					<option value="ss10">10</option>
+					<option value="ss11">11</option>
+					<option value="ss12">12</option>
+					<option value="ss13">13</option>
+					<option value="ss14">14</option>
+					<option value="ss15">15</option>
+					<option value="ss16">16</option>
+					<option value="ss17">17</option>
+					<option value="ss18">18</option>
+					<option value="ss19">19</option>
+					<option value="ss20">20</option>
+				</select>
+				<input type="checkbox" name="liga" checked="checked" onchange="changeFont();"> Ligatures
+				<input type="checkbox" name="dlig" onchange="changeFont();" style="display: none;">
+				<input type="checkbox" name="hlig" onchange="changeFont();" style="display: none;">
+				<input type="checkbox" name="clig" onchange="changeFont();" style="display: none;">
+			</div>
+			<div class="panel">
+				Other features
+				<input type="checkbox" name="ccmp" checked="checked" onchange="changeFont();"> <span class="tooltip" title="Glyph Composition/Decomposition"><em>ccmp</em></span>
+				<input type="checkbox" name="smcp" onchange="changeFont();" style="display: none;">
+				<input type="checkbox" name="c2sc" onchange="changeFont();" style="display: none;">
+				<input type="checkbox" name="swsh" onchange="changeFont();" style="display: none;">
+				<input type="checkbox" name="calt" checked="checked" onchange="changeFont();" style="display: none;">
+				<input type="checkbox" name="salt" onchange="changeFont();"> <span class="tooltip" title="Stylistic Alternates"><em>salt</em></span>
+				<input type="checkbox" name="locl" checked="checked" onchange="changeFont();"> <span class="tooltip" title="Localized Forms"><em>locl</em></span>
+				<input type="checkbox" name="mark" checked="checked" onchange="changeFont();"> <span class="tooltip" title="Mark Positioning"><em>mark</em></span>
+				<input type="checkbox" name="mkmk" checked="checked" onchange="changeFont();"> <span class="tooltip" title="Mark to Mark Positioning"><em>mkmk</em></span>
+			</div>
+		</form>
+		<form id="mode" onsubmit="return false;" action="">
+			<div class="panel">
+				<select name="test" onchange="changeText(this);" onkeyup="changeText(this);" onkeydown="changeText(this);"><option></option></select>
+				<input type="text" name="teststring" value="The quick brown fox jumps over the lazy dog" onchange="changeText(this);" onkeyup="changeText(this);" onkeydown="changeText(this);">
+				<input type="checkbox" name="wrap" checked="checked" onchange="changeWrap();" style="display: none;">
+			</div>
+		</form>
+		<div id="sandbox" style="text-rendering: geometricPrecision; font-synthesis: none; min-height: 6em;">
+			<div id="waterfall" lang="en"></div>
+		</div>
+		<p><small>Note: this preview uses your browser’s text rendering engine. Depending on the browser version, some features may not work.</small></p>
+	</section>
+	
+	<footer>
+		<p>© 2016 by Alex I. Kuznetsov</p>
+	</footer>
+</body>
+</html>
