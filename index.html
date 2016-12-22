@@ -195,9 +195,20 @@
 				document.getElementById("sandbox").style.whiteSpace="nowrap";
 			}
 		}
+		function changeColor() {
+			if(document.getElementById("mode").elements.invert.checked) {
+				document.getElementById("sandbox").style.color="white";
+				document.getElementById("sandbox").style.backgroundColor="black";
+			}
+			else {
+				document.getElementById("sandbox").style.color="black";
+				document.getElementById("sandbox").style.backgroundColor="white";
+			}
+		}
 		window.onload = function() {
 			initMode();
 			changeWrap();
+			changeColor();
 			changeFont();
 		};
 		// -->
@@ -263,6 +274,7 @@
 				<select name="test" onchange="changeText(this);" onkeyup="changeText(this);" onkeydown="changeText(this);"></select>
 				<input type="text" name="teststring" value="The quick brown fox jumps over the lazy dog" onchange="changeText(this);" onkeyup="changeText(this);" onkeydown="changeText(this);">
 				<input type="checkbox" name="wrap" checked="checked" onchange="changeWrap();" style="display: none;">
+				<input type="checkbox" name="invert" onchange="changeColor();"> Invert colors
 			</div>
 		</form>
 		<div id="sandbox" style="text-rendering: geometricPrecision; font-synthesis: none; min-height: 6em;">
