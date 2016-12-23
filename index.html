@@ -205,12 +205,13 @@
 				document.getElementById("sandbox").style.backgroundColor="white";
 			}
 		}
-		window.onload = function() {
+		function initAll() {
 			initMode();
 			changeWrap();
 			changeColor();
 			changeFont();
 		};
+		document.addEventListener("DOMContentLoaded",initAll);
 		// -->
 		</script>
 		<form id="choosefont" onsubmit="return changeFont();" action="/">
