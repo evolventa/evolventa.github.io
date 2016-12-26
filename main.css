@@ -40,3 +40,36 @@ footer {
 .semanticheading {
 	display: none;
 }
+
+/* Font sample styles */
+
+.sidebar {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	font-family: Evolventa;
+	//background-color: lightskyblue;
+	//background-color: #20898d;
+	background-color: #31d0d6;
+	background-color: #2BBDC1;
+	padding: 0.5em 0.5em;
+	margin: 0;
+}
+.fontsampleblock {
+	font-family: Evolventa;
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	font-size: xx-large;
+}
+.fontsampleblock span {
+	width: 1.2em;
+	display: inline-block;
+	text-align: center;
+}
+.fontsampleblock span.space {
+	background-color: lightgray;
+	white-space: pre;
+	display: inline;
+}
