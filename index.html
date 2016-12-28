@@ -219,12 +219,9 @@
 			<div class="panel">
 				<input type="hidden" name="font" value="Evolventa" onchange="changeFont();" onkeydown="if(event.keyCode==13) changeFont();">
 				Size (pt) <input type="text" name="pointsize" value="32" onchange="changeFont();" onkeyup="changeFont();" onkeydown="changeFont();" style="width: 5em;">
-				<input type="checkbox" name="bold" id="idBold" onchange="changeFont();">
-				<label for="idBold">Bold</label>
-				<input type="checkbox" name="italic" id="idItalic" onchange="changeFont();">
-				<label for="idItalic">Italic</label>
-				<input type="checkbox" name="kerning" id="idKerning" checked="checked" onchange="changeFont();">
-				<label for="idKerning">Kerning</label>
+				<input type="checkbox" name="bold" id="idBold" onchange="changeFont();"><label for="idBold">Bold</label>
+				<input type="checkbox" name="italic" id="idItalic" onchange="changeFont();"><label for="idItalic">Italic</label>
+				<input type="checkbox" name="kerning" id="idKerning" checked="checked" onchange="changeFont();"><label for="idKerning">Kerning</label>
 			</div>
 			<div class="panel">
 				Figures
@@ -256,28 +253,22 @@
 					<option value="ss19">19</option>
 					<option value="ss20">20</option>
 				</select>
-				<input type="checkbox" name="liga" id="idLiga" checked="checked" onchange="changeFont();">
-				<label for="idLiga">Ligatures</label>
+				<input type="checkbox" name="liga" id="idLiga" checked="checked" onchange="changeFont();"><label for="idLiga">Ligatures</label>
 				<input type="checkbox" name="dlig" onchange="changeFont();" style="display: none;">
 				<input type="checkbox" name="hlig" onchange="changeFont();" style="display: none;">
 				<input type="checkbox" name="clig" onchange="changeFont();" style="display: none;">
 			</div>
 			<div class="panel">
 				Other features
-				<input type="checkbox" name="ccmp" id="idCcmp" checked="checked" onchange="changeFont();">
-				<label for="idCcmp"><span class="tooltip" title="Glyph Composition/Decomposition"><em>ccmp</em></span></label>
+				<input type="checkbox" name="ccmp" id="idCcmp" checked="checked" onchange="changeFont();"><label for="idCcmp"><span class="tooltip" title="Glyph Composition/Decomposition"><em>ccmp</em></span></label>
 				<input type="checkbox" name="smcp" onchange="changeFont();" style="display: none;">
 				<input type="checkbox" name="c2sc" onchange="changeFont();" style="display: none;">
 				<input type="checkbox" name="swsh" onchange="changeFont();" style="display: none;">
 				<input type="checkbox" name="calt" checked="checked" onchange="changeFont();" style="display: none;">
-				<input type="checkbox" name="salt" id="idSalt" onchange="changeFont();">
-				<label for="idSalt"><span class="tooltip" title="Stylistic Alternates"><em>salt</em></span></label>
-				<input type="checkbox" name="locl" id="idLocl" checked="checked" onchange="changeFont();">
-				<label for="idLocl"><span class="tooltip" title="Localized Forms"><em>locl</em></span></label>
-				<input type="checkbox" name="mark" id="idMark" checked="checked" onchange="changeFont();">
-				<label for="idMark"><span class="tooltip" title="Mark Positioning"><em>mark</em></span></label>
-				<input type="checkbox" name="mkmk" id="idMkmk" checked="checked" onchange="changeFont();">
-				<label for="idMkmk"><span class="tooltip" title="Mark to Mark Positioning"><em>mkmk</em></span></label>
+				<input type="checkbox" name="salt" id="idSalt" onchange="changeFont();"><label for="idSalt"><span class="tooltip" title="Stylistic Alternates"><em>salt</em></span></label>
+				<input type="checkbox" name="locl" id="idLocl" checked="checked" onchange="changeFont();"><label for="idLocl"><span class="tooltip" title="Localized Forms"><em>locl</em></span></label>
+				<input type="checkbox" name="mark" id="idMark" checked="checked" onchange="changeFont();"><label for="idMark"><span class="tooltip" title="Mark Positioning"><em>mark</em></span></label>
+				<input type="checkbox" name="mkmk" id="idMkmk" checked="checked" onchange="changeFont();"><label for="idMkmk"><span class="tooltip" title="Mark to Mark Positioning"><em>mkmk</em></span></label>
 			</div>
 		</form>
 		<form id="mode" onsubmit="return false;" action="/">
@@ -285,8 +276,7 @@
 				<select name="test" onchange="changeText(this);" onkeyup="changeText(this);" onkeydown="changeText(this);"></select>
 				<input type="text" name="teststring" value="The quick brown fox jumps over the lazy dog" onchange="changeText(this);" onkeyup="changeText(this);" onkeydown="changeText(this);">
 				<input type="checkbox" name="wrap" checked="checked" onchange="changeWrap();" style="display: none;">
-				<input type="checkbox" name="invert" id="idInvert" onchange="changeColor();">
-				<label for="idInvert">Invert colors</label>
+				<input type="checkbox" name="invert" id="idInvert" onchange="changeColor();"><label for="idInvert">Invert colors</label>
 			</div>
 		</form>
 		<div id="sandbox" style="text-rendering: geometricPrecision; font-synthesis: none; min-height: 6em;">
